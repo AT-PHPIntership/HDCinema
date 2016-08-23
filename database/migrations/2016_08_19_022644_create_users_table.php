@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->integer('block');
             $table->integer('admins_id')->unsigned();
             $table->foreign('admins_id')->references('id')->on('admins');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
