@@ -22,8 +22,8 @@ class CreateFilmsTable extends Migration
             $table->string('starttime',45);
             $table->string('image',100);
             $table->string('trailer',100);
-            $table->integer('views',10);
-            $table->integer('hide',1);
+            $table->integer('views');
+            $table->integer('hide');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->integer('admins_id')->unsigned();

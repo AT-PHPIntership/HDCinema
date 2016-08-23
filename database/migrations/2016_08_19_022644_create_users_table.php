@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('address',100);
             $table->string('tel',15);
             $table->string('image',100);
-            $table->integer('block',1);
+            $table->integer('block');
             $table->integer('admins_id')->unsigned();
             $table->foreign('admins_id')->references('id')->on('admins');
             $table->timestamps();
