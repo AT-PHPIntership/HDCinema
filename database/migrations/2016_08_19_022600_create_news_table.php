@@ -16,8 +16,8 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('title',100);
             $table->string('content',1000);
-            $table->integer('views',10);
-            $table->integer('hide',1);
+            $table->integer('views');
+            $table->integer('hide');
             $table->timestamps();
         });
     }

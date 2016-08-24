@@ -16,9 +16,9 @@ class CreateAdvertisementsTable extends Migration
             $table->increments('id');
             $table->string('name',100);
             $table->string('description',1000);
-            $table->integer('views',10);
+            $table->integer('views');
             $table->string('link',100);
-            $table->integer('hide',1);
+            $table->integer('hide');
             $table->timestamps();
         });
     }

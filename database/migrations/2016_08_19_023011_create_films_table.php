@@ -18,18 +18,18 @@ class CreateFilmsTable extends Migration
             $table->string('genre',45);
             $table->string('actor',255);
             $table->string('director',45);
-            $table->timestamps('duration');
+            $table->time('duration');
             $table->string('starttime',45);
             $table->string('image',100);
             $table->string('trailer',100);
-            $table->integer('views',10);
-            $table->integer('hide',1);
+            $table->integer('views');
+            $table->integer('hide');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->integer('admin_id')->unsigned();
-            $table->foreign('admin_id')->references('id')->on('admin');
-            $table->integer('type_film_id')->unsigned();
-            $table->foreign('type_film_id')->references('id')->on('type_film');
+            $table->integer('admins_id')->unsigned();
+            $table->foreign('admins_id')->references('id')->on('admins');
+            $table->integer('type_films_id')->unsigned();
+            $table->foreign('type_films_id')->references('id')->on('type_films');
             $table->timestamps();
         });
     }
