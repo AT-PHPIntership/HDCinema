@@ -18,10 +18,10 @@ class News extends Model
     /**
      * Get all image of news .
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function images()
+    public function likes()
     {
-        return $this->hasMany('App\Image');
+        return $this->morphMany('App\Image', 'imageable');
     }
 }
