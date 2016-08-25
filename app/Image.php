@@ -13,46 +13,15 @@ class Image extends Model
      */
     protected $table= 'images';
 
-    protected $fillable= ['name', 'description', 'films_id', 'cinemas_id',
-    'news_id', 'advertisements_id'];
+    protected $fillable= ['name', 'description', 'imageable_id', 'imageable_type'];
 
     /**
-     * Get advertisement that owns the image .
+     * Get all of the owning imageable models.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
-    public function advertisements()
+    public function imageable()
     {
-        return $this->belongsTo('App\Advertisement', 'advertisements_id');
-    }
-
-    /**
-     * Get news that owns the image .
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function news()
-    {
-        return $this->belongsTo('App\News', 'news_id');
-    }
-
-    /**
-     * Get films that owns the image .
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function films()
-    {
-        return $this->belongsTo('App\Film', 'films_id');
-    }
-
-    /**
-     * Get cinema that owns the image .
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function cinemas()
-    {
-        return $this->belongsTo('App\Cinema', 'cinemas_id');
+        return $this->morphTo();
     }
 }

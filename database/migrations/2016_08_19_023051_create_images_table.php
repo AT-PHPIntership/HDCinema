@@ -16,14 +16,8 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->string('name',100);
             $table->string('description',1000);
-            $table->integer('films_id')->unsigned();
-            $table->foreign('films_id')->references('id')->on('films');
-            $table->integer('cinemas_id')->unsigned();
-            $table->foreign('cinemas_id')->references('id')->on('cinemas');
-            $table->integer('news_id')->unsigned();
-            $table->foreign('news_id')->references('id')->on('news');
-            $table->integer('advertisements_id')->unsigned();
-            $table->foreign('advertisements_id')->references('id')->on('news');
+            $table->integer('imageable_id');
+            $table->string('imageable_type',255);
             $table->timestamps();
         });
     }

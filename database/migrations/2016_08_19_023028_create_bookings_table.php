@@ -18,10 +18,11 @@ class CreateBookingsTable extends Migration
             $table->foreign('users_id')->references('id')->on('users');
             $table->integer('films_id')->unsigned();
             $table->foreign('films_id')->references('id')->on('films');
+            $table->string('identitycard',45);
             $table->string('cinema',45);
             $table->integer('quantity');
             $table->string('date',45);
-            $table->string('schedule',45);
+            $table->string('time',45);
             $table->string('seat',45);
             $table->timestamps();
         });

@@ -13,7 +13,7 @@ class Booking extends Model
      */
     protected $table = 'bookings';
 
-    protected $fillable = ['users_id', 'films_id', 'cinema',
+    protected $fillable = ['users_id', 'films_id', 'identitycard', 'cinema',
      'date', 'time', 'quantity', 'seat'];
     
     /**

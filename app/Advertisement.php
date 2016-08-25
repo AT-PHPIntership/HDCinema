@@ -19,10 +19,10 @@ class Advertisement extends Model
     /**
      * Get all image for Advertisement .
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function images()
     {
-        return $this->hasMany('App\Image');
+        return $this->morphMany('App\Image', 'imageable');
     }
 }

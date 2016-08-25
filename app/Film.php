@@ -18,6 +18,15 @@ class Film extends Model
      'category_id', 'admins_id', 'type_films_id'];
 
     /**
+     * Get all image for Film .
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function images()
+    {
+        return $this->morphMany('App\Image', 'imageable');
+    }
+    /**
      * Get all booking of film .
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -35,16 +44,6 @@ class Film extends Model
     public function comments()
     {
         return $this->hasMany('App\Comment');
-    }
-
-    /**
-     * Get all image of film .
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function images()
-    {
-        return $this->hasMany('App\Image');
     }
 
     /**
@@ -68,7 +67,7 @@ class Film extends Model
     }
 
     /**
-     * Get all schedule of day .
+     * Get admin create the film .
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
