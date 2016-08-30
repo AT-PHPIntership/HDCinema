@@ -31,6 +31,7 @@ return [
         'you_tasks' => 'You have 0 tasks',
         'view_all_tasks' => 'View all tasks',
         'profile' => 'Profile',
+        'change_pass' => 'Change Password',
         'sign_out' => 'Sign out',
         'member_signin' => 'Member since Nov. 2016',
         'online' => 'Online',

@@ -56,18 +56,18 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ url('images/upload/user/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">Huu Quang</span>
+              <span class="hidden-xs">{{ Auth::guard('admin')->user()->username }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <a href="#"><p>Profile</p></a>
+                <a href="#"><p>{{ trans('lang_admin.homepage.profile') }}</p></a>
               </li>
               <li class="user-header">
-                <a href="#"><p>Change password</p></a>
+                <a href="#"><p>{{ trans('lang_admin.homepage.change_pass') }}</p></a>
               </li>
               <li class="user-header">
-                <a href="{{ route('admin.logout') }}"><p>Log out</p></a>
+                <a href="{{ route('admin.logout') }}"><p>{{ trans('lang_admin.homepage.sign_out') }}</p></a>
               </li>
             
             </ul>
@@ -86,7 +86,7 @@
           <img src="{{ url('images/upload/user/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Huu Quang</p>
+          <p>{{ Auth::guard('admin')->user()->username }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('lang_admin.homepage.online') }}</a>
         </div>
       </div>
