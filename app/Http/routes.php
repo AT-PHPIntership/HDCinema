@@ -14,12 +14,13 @@
 
 Route::group(['prefix' => 'admin','namespace' => 'Backend'], function () {
     //login
-    Route::get('/login', ['as' => 'admin.login', 'uses' =>'AuthController@getLogin']);
+    Route::get('/login', ['as' => 'admin.login', 'uses' => 'AuthController@getLogin']);
     Route::post('/login', ['uses' => 'AuthController@postLogin']);
     //logout
     Route::get('/logout', ['as' => 'admin.logout','uses' => 'AuthController@logout']);
 
     Route::group(['middleware' => 'auth:admin'], function () {
-        Route::get('/', 'HomeController@index');
+        Route::get('/', ['as' => 'admin.home', 'uses' => 'HomeController@index']);
+        Route::resource('user', 'UserController');
     });
 });
