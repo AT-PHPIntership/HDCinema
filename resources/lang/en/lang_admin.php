@@ -62,6 +62,7 @@ return [
         'log_in' => 'Log In',
     ],
     'user' => [
+        'title_manage_user' => 'Manage Users',
         'list_user' => 'Users List',
         'no' => 'No.',
         'full_name' => 'Fullname',

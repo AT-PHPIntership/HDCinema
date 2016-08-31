@@ -21,3 +21,10 @@
 	color: white;
 	background-color: #3c8dbc;
 }
+.content-header{
+	margin-bottom: 50px;
+	border-bottom: 2px solid;
+}
+.content{
+	background-color: white;
+}
