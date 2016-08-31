@@ -93,11 +93,17 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">{{ trans('lang_admin.homepage.title_admin') }}</li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-dashboard"></i> <span>{{ trans('lang_admin.homepage.dashboard') }}</span></a>
+        <li class="treeview {{ Request::is('admin') ? "active" : "" }}">
+          <a href="{{route('admin.home')}}"><i class="fa fa-dashboard"></i> <span>{{ trans('lang_admin.homepage.dashboard') }}</span></a>
         </li>
-        <li class="treeview">
-          <a href="#">
+        <li class="treeview {{ Request::is('admin/user/create') ? "active" : "" }}">
+          <a href="{{route('admin.user.create')}}">
+            <i class="fa fa-fw fa-edit"></i>
+            <span>{{ trans('lang_admin.homepage.create_acc') }}</span>
+          </a>
+        </li>
+        <li class="treeview {{ Request::is('admin/user') ? "active" : "" }}">
+          <a href="{{route('admin.user.index')}}">
             <i class="fa fa-users"></i>
             <span>{{ trans('lang_admin.homepage.user_manager') }}</span>
           </a>
@@ -114,23 +120,23 @@
             <li><a href="#"><i class="fa fa-list-alt"></i> {{ trans('lang_admin.homepage.category') }}</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview {{ Request::is('admin/booking') ? "active" : "" }}">
           <a href="#">
             <i class="fa fa-ticket"></i> <span>{{ trans('lang_admin.homepage.manage_booking') }}</span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="treeview {{ Request::is('admin/comment') ? "active" : "" }}">
           <a href="#">
             <i class="fa fa-comments-o"></i> <span>{{ trans('lang_admin.homepage.manage_comment') }}</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">12</small>
+              <small class="label pull-right bg-red"></small>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-rss-square"></i> {{ trans('lang_admin.homepage.manage_ads') }}</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview {{ Request::is('admin/advertisement') ? "active" : "" }}">
           <a href="#">
             <i class="fa fa-rss-square"></i> <span>{{ trans('lang_admin.homepage.manage_ads') }}</span>
           </a>

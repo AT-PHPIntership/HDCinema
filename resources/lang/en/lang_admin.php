@@ -36,6 +36,7 @@ return [
         'member_signin' => 'Member since Nov. 2016',
         'online' => 'Online',
         'statistical' => 'Statistical',
+        'create_acc' => 'Create Account',
         'user_manager' => 'Manage Users',
         'list_users' => 'List Users',
         'list_booking' => 'List Booking',
@@ -59,5 +60,14 @@ return [
         'forgot_pass' => 'Forgot Password?',
         'register' => 'Register Now',
         'log_in' => 'Log In',
+    ],
+    'user' => [
+        'list_user' => 'Users List',
+        'no' => 'No.',
+        'full_name' => 'Fullname',
+        'tel' => 'Tel',
+        'address' => 'Address',
+        'title_delete' => 'Delete User',
+        'confirm' => 'Do you want delete this User ?'
     ]
 ];
