@@ -10,6 +10,7 @@
     <div class="content-wrapper">
       <!-- Main content -->
       <section class="content">
+        @include('backend.layouts.partials.messages')
         @yield('content')
       </section>
       <!-- /.content -->
