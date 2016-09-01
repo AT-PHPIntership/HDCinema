@@ -14,5 +14,7 @@ return [
     */
     'edit' => 'Edit',
     'delete' => 'Delete',
-    'submit' => 'Submit'
+    'submit' => 'Submit',
+    'update' => 'Update',
+    'cancle' => 'Cancle'
 ];

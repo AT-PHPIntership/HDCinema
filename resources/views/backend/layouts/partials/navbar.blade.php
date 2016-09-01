@@ -55,7 +55,11 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ url('images/upload/user/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+              @if(Auth::guard('admin')->user()->image == null)
+                <img class="user-image" src="{{ url(config('path.img_default').'profile_default.jpg') }}">
+              @else
+                <img class="user-image" src="{{ url(config('path.upload_user').Auth::guard('admin')->user()->image) }}">
+              @endif
               <span class="hidden-xs">{{ Auth::guard('admin')->user()->username }}</span>
             </a>
             <ul class="dropdown-menu">
@@ -83,7 +87,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ url('images/upload/user/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+          @if(Auth::guard('admin')->user()->image == null)
+            <img class="user-image" src="{{ url(config('path.img_default').'profile_default.jpg') }}">
+          @else
+            <img class="user-image" src="{{ url(config('path.upload_user').Auth::guard('admin')->user()->image) }}">
+          @endif
         </div>
         <div class="pull-left info">
           <p>{{ Auth::guard('admin')->user()->username }}</p>

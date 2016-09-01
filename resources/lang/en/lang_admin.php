@@ -69,6 +69,24 @@ return [
         'tel' => 'Tel',
         'address' => 'Address',
         'title_delete' => 'Delete User',
-        'confirm' => 'Do you want delete this User ?'
+        'confirm' => 'Do you want delete this User ?',
+        'danger' => 'Danger :',
+        'success' => 'Successful :',
+        'no_user' => 'Not found user',
+        'title_edit_user' => 'Edit User',
+        'edit_user' => 'Edit User',
+        'image' => 'Choose Image',
+        'admin' => 'Update By: ',
+        'fullname_pattern' => '[A-Za-z \t]{3,100}*\p{L}+',
+        'fullname_notice' => 'firstname lastname. Ex: Quang Tran. And 3->100 characters',
+        'tel_pattern' => '\d{10,14}',
+        'tel_notice' => 'Must contain 10->14 number',
+        'address_pattern' => '[.,\-\/A-Za-z0-9 \t]{6,100}*\p{L}+',
+        'address_notice' => 'Address must 6-100 characters,no special characters,except .,-/',
+        'edit_fail' => 'Edit user is failed! Try Again.',
+        'edit_success' => 'Edit user is successful!',
+
+
+
     ]
 ];

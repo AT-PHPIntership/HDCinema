@@ -28,3 +28,11 @@
 .content{
 	background-color: white;
 }
+#image_no, .user-image{
+	width: 100px;
+	height: auto;
+}
+#form_edit{
+	padding: 20px;
+	border: 1px solid #eee;
+}
