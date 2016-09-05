@@ -1,7 +1,8 @@
 $(document).ready(function(){ 
   //datatables
   $('#list_users').DataTable();
-  
+  //countdown shutdown alert
+  $("div.alert").delay(timeout).slideUp();
 });
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -18,3 +19,4 @@ $("#image").on('change', function(){
     readURL(this);
 
 });
+

@@ -32,7 +32,7 @@
 	width: 100px;
 	height: auto;
 }
-#form_edit{
+#form_edit, #form_create{
 	padding: 20px;
 	border: 1px solid #eee;
 }

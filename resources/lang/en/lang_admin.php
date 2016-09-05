@@ -85,8 +85,16 @@ return [
         'address_notice' => 'Address must 6-100 characters,no special characters,except .,-/',
         'edit_fail' => 'Edit user is failed! Try Again.',
         'edit_success' => 'Edit user is successful!',
-
-
-
+        'username_pattern' => '[A-Za-z0-9_]{3,20}',
+        'username_notice' => 'must contain 3->20 character (A-Za-z0-9_),no special characters',
+        'password_pattern' => '.{6,100}',
+        'password_notice' => 'Password must 6-100 characters',
+        'password' => 'Password',
+        'username' => 'Username',
+        'create_user' => 'Create User',
+        'create_success' => 'Created User Successful',
+        'create_error' => 'Create Fail ! Check again.',
+        'block_default' => 0,
+        
     ]
 ];

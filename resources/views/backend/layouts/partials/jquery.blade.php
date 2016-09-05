@@ -7,5 +7,7 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
-
+<script type="text/javascript">
+    	var timeout = {!! json_encode(config('define.timeout')) !!};
+    </script>
 @yield('script')
