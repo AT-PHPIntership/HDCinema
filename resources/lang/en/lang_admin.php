@@ -95,6 +95,11 @@ return [
         'create_success' => 'Created User Successful',
         'create_error' => 'Create Fail ! Check again.',
         'block_default' => 0,
+        'linked' => 'http://hdcinema.app/admin/user/',
+        'user_has_booking' => 'Can\'t delete ! User has booking.',
+        'delete_success' => 'Delete Successful !',
+        'delete_fail' => 'Delete Failed ! Try again.',
+        'booking_empty' => 0
         
     ]
 ];
