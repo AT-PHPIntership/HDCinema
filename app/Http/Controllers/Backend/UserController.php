@@ -12,6 +12,7 @@ use App\Repositories\Eloquent\UserRepositoryEloquent;
 use App\Models\User;
 use Exception;
 use Session;
+use Auth;
 
 class UserController extends Controller
 {
@@ -47,17 +48,37 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.users.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\UserRequest $request User request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(UserRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['admins_id'] = Auth::guard('admin')->user()->id;
+        $img = null;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $imagename=time().'_'.$data['username'] .'.'. $img->getClientOriginalExtension();
+            $data['image'] = $imagename;
+            $img->move(public_path(config('path.upload_book')), $imagename);
+        }
+        $data['password'] = bcrypt($request->password);
+        $data['block'] = trans('lang_admin.user.block_default');
+        $result=$this->userRepository->create($data);
+        if ($result) {
+            Session::flash('success', trans('lang_admin.user.create_success'));
+            return redirect()->route('admin.user.index');
+        } else {
+             Session::flash('danger', trans('lang_admin.user.create_error'));
+            return redirect()->route('admin.user.create');
+        }
     }
 
     /**
