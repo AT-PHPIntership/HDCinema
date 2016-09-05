@@ -16,5 +16,5 @@ return [
     'delete' => 'Delete',
     'submit' => 'Submit',
     'update' => 'Update',
-    'cancle' => 'Cancle'
+    'cancel' => 'Cancel'
 ];

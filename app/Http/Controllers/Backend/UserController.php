@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserEditRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\UserRepositoryEloquent;
+use App\Repositories\Eloquent\BookingRepositoryEloquent;
 use App\Models\User;
 use Exception;
 use Session;
@@ -17,17 +18,20 @@ use Auth;
 class UserController extends Controller
 {
     protected $userRepository;
+    protected $bookingRepository;
 
     /**
      * Create a new authentication controller instance.
      *
-     * @param UserRepositoryEloquent $user the user repository
+     * @param UserRepositoryEloquent    $user    the user repository
+     * @param BookingRepositoryEloquent $booking the booking repository
      *
      * @return void
      */
-    public function __construct(UserRepositoryEloquent $user)
+    public function __construct(UserRepositoryEloquent $user, BookingRepositoryEloquent $booking)
     {
         $this->userRepository = $user;
+        $this->bookingRepository = $booking;
     }
 
     /**
@@ -142,10 +146,29 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        try {
+            $this->userRepository->find($id);
+            $bookings= $this->bookingRepository->findByField('users_id', $id, ['id'])->count();
+            if ($bookings== trans('lang_admin.user.booking_empty')) {
+                $result = $this->userRepository->delete($id);
+                if ($result) {
+                    Session::flash('success', trans('lang_admin.user.delete_success'));
+                } else {
+                    Session::flash('danger', trans('lang_admin.user.delete_fail'));
+                }
+            } else {
+                Session::flash('danger', trans('lang_admin.user.user_has_booking'));
+            }
+            return redirect() -> route('admin.user.index');
+        } catch (Exception $ex) {
+            Session::flash('danger', trans('lang_admin.user.no_user'));
+            return redirect() -> route('admin.user.index');
+        }
     }
 }

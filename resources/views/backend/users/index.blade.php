@@ -43,7 +43,9 @@
                             {!! Form::button(trans('labels.delete'), ['class' => 'btn btn-danger',
                             'data-toggle' => 'modal','data-target' => '#confirmDelete',
                             'data-title' => trans('lang_admin.user.title_delete'),
-                            'data-message' => trans('lang_admin.user.confirm')]) !!}
+                            'data-message' => trans('lang_admin.user.confirm'),
+                            'data-linked' => trans('lang_admin.user.linked').$user->id,
+                            'data-user' => $user->username]) !!}
                             {!! Form::close() !!}
                         </td>
                     </tr>
