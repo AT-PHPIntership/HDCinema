@@ -22,5 +22,6 @@ Route::group(['prefix' => 'admin','namespace' => 'Backend'], function () {
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/', ['as' => 'admin.home', 'uses' => 'HomeController@index']);
         Route::resource('user', 'UserController');
+        Route::resource('film', 'FilmController');
     });
 });
