@@ -1,6 +1,7 @@
 $(document).ready(function(){ 
   //datatables
   $('#list_users').DataTable();
+  $('#list_films').DataTable();
   //countdown shutdown alert
   $("div.alert").delay(timeout).slideUp();
 
@@ -8,10 +9,10 @@ $(document).ready(function(){
   $('#confirmDelete').on('show.bs.modal', function (e) {
       // set message, content for body modal
       $message = $(e.relatedTarget).attr('data-message');
-      $username = $(e.relatedTarget).attr('data-user');
+      $name = $(e.relatedTarget).attr('data-name');
       $linked = $(e.relatedTarget).attr('data-linked');
       $('.modal-body p').text($message);
-      $('.modal-body a').html($username);
+      $('.modal-body a').html($name);
       $('.modal-body a').attr('href', $linked);
       // set title for model
       $title = $(e.relatedTarget).attr('data-title');

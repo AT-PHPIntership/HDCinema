@@ -95,11 +95,25 @@ return [
         'create_success' => 'Created User Successful',
         'create_error' => 'Create Fail ! Check again.',
         'block_default' => 0,
-        'linked' => 'http://hdcinema.app/admin/user/',
+        'linked_user' => 'http://hdcinema.app/admin/user/',
         'user_has_booking' => 'Can\'t delete ! User has booking.',
         'delete_success' => 'Delete Successful !',
         'delete_fail' => 'Delete Failed ! Try again.',
         'booking_empty' => 0
         
+    ],
+    'film' => [
+        'title_manage_film' => 'Manage Films',
+        'list_films' => 'Films List',
+        'no' => 'No.',
+        'name' => 'Name',
+        'genre' => 'Genre',
+        'actor' => 'Actor',
+        'duration' => 'Duration',
+        'starttime' => 'Starttime',
+        'linked_film' => 'http://hdcinema.app/admin/film/',
+        'title_delete' => 'Delete Film',
+        'confirm' => 'Do you want delete this Film ?',
+        'create_film' => 'Create Film'
     ]
 ];

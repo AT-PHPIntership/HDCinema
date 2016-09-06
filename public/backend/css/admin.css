@@ -22,7 +22,7 @@
 	background-color: #3c8dbc;
 }
 .content-header{
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 	border-bottom: 2px solid;
 }
 .content{
@@ -35,4 +35,7 @@
 #form_edit, #form_create{
 	padding: 20px;
 	border: 1px solid #eee;
+}
+#create_film{
+	margin-bottom: 20px;
 }
