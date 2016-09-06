@@ -5,27 +5,39 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\FilmEditRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\Eloquent\UserRepositoryEloquent;
+use App\Repositories\Eloquent\CategoryRepositoryEloquent;
 use App\Repositories\Eloquent\FilmRepositoryEloquent;
+use App\Repositories\Eloquent\TypeFilmRepositoryEloquent;
+use Exception;
+use Session;
+use Auth;
 
 class FilmController extends Controller
 {
-    protected $userRepository;
+    protected $categoryRepository;
     protected $filmRepository;
+    protected $typeFilmRepository;
 
     /**
      * Create a new authentication controller instance.
      *
-     * @param UserRepositoryEloquent $user the user repository
-     * @param FilmRepositoryEloquent $film the booking repository
+     * @param CategoryRepositoryEloquent $category the category repository
+     * @param FilmRepositoryEloquent     $film     the booking repository
+     * @param TypeFilmRepositoryEloquent $typeFilm the typeFilm repository
      *
      * @return void
      */
-    public function __construct(UserRepositoryEloquent $user, FilmRepositoryEloquent $film)
-    {
-        $this->userRepository = $user;
+    public function __construct(
+        CategoryRepositoryEloquent $category,
+        FilmRepositoryEloquent $film,
+        TypeFilmRepositoryEloquent $typeFilm
+    ) {
+    
+        $this->categoryRepository = $category;
         $this->filmRepository = $film;
+        $this->typeFilmRepository = $typeFilm;
     }
 
     /**
@@ -72,21 +84,55 @@ class FilmController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        //
+        try {
+            $film = $this->filmRepository->find($id);
+            $categories = $this->categoryRepository->lists('name', 'id');
+            $typeFilms= $this->typeFilmRepository->lists('name', 'id');
+            return  view('backend.films.edit', compact('film', 'categories', 'typeFilms'));
+        } catch (Exception $ex) {
+            Session::flash('danger', trans('lang_admin.film.no_film'));
+            return redirect() -> route('admin.film.index');
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
+     * @param \Illuminate\Http\Request\FilmEditRequest $request request
+     * @param int                                      $id      id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(FilmEditRequest $request, $id)
     {
-        //
+        $data = $request -> all();
+        // dd($data);
+        if ($request -> hasFile('image')) {
+            $img = $request->file('image');
+            $imgname = time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
+            $data['image'] = $imgname;
+            $img->move(public_path(config('path.upload_film')), $imgname);
+        }
+        try {
+            $this->filmRepository->find($id);
+            $result= $this->filmRepository->update($data, $id);
+            if ($result) {
+                Session::flash('success', trans('lang_admin.film.edit_success'));
+                return redirect() -> route('admin.film.index');
+            } else {
+                Session::flash('danger', trans('lang_admin.film.edit_fail'));
+                return redirect() -> route('admin.film.index');
+            }
+        } catch (Exception $ex) {
+            Session::flash('danger', trans('lang_admin.film.no_film'));
+            return redirect() -> route('admin.film.index');
+        }
     }
 
     /**

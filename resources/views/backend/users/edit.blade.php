@@ -52,17 +52,16 @@
             @else
                 <img class="user-image" id ="image_no" src="{{ url(config('path.upload_user').$users->image) }}">
             @endif
-            {{-- <img src="{{url(config('path.upload_user').$users->image)}}" class = "setpicture img-thumbnail" id ="image_no"></img><br> --}}
             @if($errors->has('image'))
             <span class="help-block">{{ $errors->first('image') }}</span>
             @endif
             </div>
             <div class = "form-group">
-            {!! Form::label('admin', trans('lang_admin.user.admin').Auth::guard('admin')->user()->username, ['class' =>'control-label']) !!} <br>
-            {!! Form::hidden('admin_user_id', Auth::guard('admin')->user()->id, null,['class' =>'form-control']) !!} <br />
+            {!! Form::label('admin', trans('lang_admin.user.admin').$users->admin->username, ['class' =>'control-label']) !!} <br>
+            {!! Form::hidden('admins_id', Auth::guard('admin')->user()->id, null,['class' =>'form-control']) !!} <br />
             </div>
             {!! Form::submit(trans('labels.update'), ['class' =>'btn btn-primary'])!!}
-            {!! link_to(route('admin.user.index'), trans('labels.cancle'), ['class' => 'btn btn-danger']) !!}
+            {!! link_to(route('admin.user.index'), trans('labels.cancel'), ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
             <br>    
         </div>    
