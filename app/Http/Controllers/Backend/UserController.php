@@ -71,7 +71,7 @@ class UserController extends Controller
             $img = $request->file('image');
             $imagename=time().'_'.$data['username'] .'.'. $img->getClientOriginalExtension();
             $data['image'] = $imagename;
-            $img->move(public_path(config('path.upload_book')), $imagename);
+            $img->move(public_path(config('path.upload_user')), $imagename);
         }
         $data['password'] = bcrypt($request->password);
         $data['block'] = trans('lang_admin.user.block_default');
