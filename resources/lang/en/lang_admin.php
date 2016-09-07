@@ -141,6 +141,9 @@ return [
         'trailer_notice' => 'must contain 10->100 character,no special characters <>',
         'edit_success' => 'Edit Film Successful !',
         'edit_fail' => 'Edit Failed ! Try again.',
-        'no_film' => 'The Film not found !'
+        'no_film' => 'The Film not found !',
+        'create_success' => 'Created Film Successful',
+        'create_error' => 'Create Fail ! Check again.',
+        'title_create_film' => 'Create Film',
     ]
 ];

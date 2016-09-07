@@ -26,6 +26,6 @@ class TypeFilm extends Model implements Transformable
      */
     public function films()
     {
-        return $this->hasMany('App\Film');
+        return $this->hasMany('App\Models\Film');
     }
 }

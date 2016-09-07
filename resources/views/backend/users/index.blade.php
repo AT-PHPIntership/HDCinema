@@ -44,8 +44,8 @@
                             'data-toggle' => 'modal','data-target' => '#confirmDelete',
                             'data-title' => trans('lang_admin.user.title_delete'),
                             'data-message' => trans('lang_admin.user.confirm'),
-                            'data-linked' => trans('lang_admin.user.linked').$user->id,
-                            'data-user' => $user->username]) !!}
+                            'data-linked' => trans('lang_admin.user.linked_user').$user->id,
+                            'data-name' => $user->username]) !!}
                             {!! Form::close() !!}
                         </td>
                     </tr>
