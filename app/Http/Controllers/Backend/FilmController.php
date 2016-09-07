@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\FilmRequest;
 use App\Http\Requests\FilmEditRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\CategoryRepositoryEloquent;
@@ -58,17 +59,37 @@ class FilmController extends Controller
      */
     public function create()
     {
-        //
+        $categories = $this->categoryRepository->lists('name', 'id');
+        $typeFilms= $this->typeFilmRepository->lists('name', 'id');
+        return view('backend.films.create', compact('categories', 'typeFilms'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\FilmRequest $request Film request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(FilmRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['admins_id'] = Auth::guard('admin')->user()->id;
+        $img = null;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $imagename=time().'_'.$data['name'] .'.'. $img->getClientOriginalExtension();
+            $data['image'] = $imagename;
+            $img->move(public_path(config('path.upload_film')), $imagename);
+        }
+        $result=$this->filmRepository->create($data);
+        if ($result) {
+            Session::flash('success', trans('lang_admin.film.create_success'));
+            return redirect()->route('admin.film.index');
+        } else {
+             Session::flash('danger', trans('lang_admin.film.create_error'));
+            return redirect()->route('admin.film.create');
+        }
     }
 
     /**

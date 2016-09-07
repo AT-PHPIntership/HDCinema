@@ -28,7 +28,7 @@ class Film extends Model implements Transformable
      */
     public function images()
     {
-        return $this->morphMany('App\Image', 'imageable');
+        return $this->morphMany('App\Models\Image', 'imageable');
     }
     /**
      * Get all booking of film .
@@ -37,7 +37,7 @@ class Film extends Model implements Transformable
      */
     public function bookings()
     {
-        return $this->hasMany('App\Booking');
+        return $this->hasMany('App\Models\Booking');
     }
 
     /**
@@ -47,7 +47,7 @@ class Film extends Model implements Transformable
      */
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     /**
@@ -57,7 +57,7 @@ class Film extends Model implements Transformable
      */
     public function schedules()
     {
-        return $this->hasMany('App\Schedule');
+        return $this->hasMany('App\Models\Schedule');
     }
 
     /**
@@ -67,7 +67,7 @@ class Film extends Model implements Transformable
      */
     public function typeFilms()
     {
-        return $this->belongsTo('App\TypeFilm', 'type_films_id');
+        return $this->belongsTo('App\Models\TypeFilm', 'type_films_id');
     }
 
     /**
@@ -77,7 +77,7 @@ class Film extends Model implements Transformable
      */
     public function admins()
     {
-        return $this->belongsTo('App\Admin', 'admins_id');
+        return $this->belongsTo('App\Models\Admin', 'admins_id');
     }
 
     /**
@@ -87,6 +87,6 @@ class Film extends Model implements Transformable
      */
     public function categories()
     {
-        return $this->belongsTo('App\Category', 'category_id');
+        return $this->belongsTo('App\Models\Category', 'category_id');
     }
 }
