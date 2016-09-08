@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
-use Prettus\Repository\Eloquent\BaseRepository;
+use App\Repositories\Eloquent\CustomBaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Contracts\Repositories\CategoryRepository;
 use App\Models\Category;
@@ -13,7 +13,7 @@ use App\Validators\CategoryValidator;
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
+class CategoryRepositoryEloquent extends CustomBaseRepository implements CategoryRepository
 {
     /**
      * Specify Model class name

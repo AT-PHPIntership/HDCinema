@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
-use Prettus\Repository\Eloquent\BaseRepository;
+use App\Repositories\Eloquent\CustomBaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Contracts\Repositories\BookingRepository;
 use App\Models\Booking;
@@ -13,7 +13,7 @@ use App\Validators\BookingValidator;
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class BookingRepositoryEloquent extends BaseRepository implements BookingRepository
+class BookingRepositoryEloquent extends CustomBaseRepository implements BookingRepository
 {
     /**
      * Specify Model class name

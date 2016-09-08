@@ -4,16 +4,16 @@ namespace App\Repositories\Eloquent;
 
 use App\Repositories\Eloquent\CustomBaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Contracts\Repositories\UserRepository;
-use App\Models\User;
-use App\Validators\UserValidator;
+use App\Contracts\Repositories\AdvertisementRepository;
+use App\Models\Advertisement;
+use App\Validators\AdvertisementValidator;
 
 /**
- * Class UserRepositoryEloquent
+ * Class AdvertisementRepositoryEloquent
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class UserRepositoryEloquent extends CustomBaseRepository implements UserRepository
+class AdvertisementRepositoryEloquent extends CustomBaseRepository implements AdvertisementRepository
 {
     /**
      * Specify Model class name
@@ -22,7 +22,7 @@ class UserRepositoryEloquent extends CustomBaseRepository implements UserReposit
      */
     public function model()
     {
-        return User::class;
+        return Advertisement::class;
     }
 
     

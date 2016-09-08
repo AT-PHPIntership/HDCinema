@@ -2,14 +2,14 @@
 
 namespace App\Contracts\Repositories;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use App\Contracts\Repositories\CustomRepositoryInterface;
 
 /**
  * Interface CategoryRepository
  *
  * @package namespace App\Contracts\Repositories;
  */
-interface CategoryRepository extends RepositoryInterface
+interface CategoryRepository extends CustomRepositoryInterface
 {
     //
 }
