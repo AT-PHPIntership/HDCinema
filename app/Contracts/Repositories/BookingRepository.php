@@ -2,14 +2,14 @@
 
 namespace App\Contracts\Repositories;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use App\Contracts\Repositories\CustomRepositoryInterface;
 
 /**
  * Interface BookingRepository
  *
  * @package namespace App\Contracts\Repositories;
  */
-interface BookingRepository extends RepositoryInterface
+interface BookingRepository extends CustomRepositoryInterface
 {
     //
 }

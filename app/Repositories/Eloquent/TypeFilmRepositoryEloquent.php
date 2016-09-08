@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
-use Prettus\Repository\Eloquent\BaseRepository;
+use App\Repositories\Eloquent\CustomBaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Contracts\Repositories\TypeFilmRepository;
 use App\Models\TypeFilm;
@@ -13,7 +13,7 @@ use App\Validators\TypeFilmValidator;
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class TypeFilmRepositoryEloquent extends BaseRepository implements TypeFilmRepository
+class TypeFilmRepositoryEloquent extends CustomBaseRepository implements TypeFilmRepository
 {
     /**
      * Specify Model class name

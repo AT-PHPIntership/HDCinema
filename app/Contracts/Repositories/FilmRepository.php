@@ -2,14 +2,14 @@
 
 namespace App\Contracts\Repositories;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use App\Contracts\Repositories\CustomRepositoryInterface;
 
 /**
  * Interface FilmRepository
  *
  * @package namespace App\Contracts\Repositories;
  */
-interface FilmRepository extends RepositoryInterface
+interface FilmRepository extends CustomRepositoryInterface
 {
     //
 }

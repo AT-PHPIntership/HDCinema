@@ -5,11 +5,11 @@ namespace App\Contracts\Repositories;
 use App\Contracts\Repositories\CustomRepositoryInterface;
 
 /**
- * Interface UserRepository
+ * Interface AdvertisementRepository
  *
  * @package namespace App\Contracts\Repositories;
  */
-interface UserRepository extends CustomRepositoryInterface
+interface AdvertisementRepository extends CustomRepositoryInterface
 {
-    
+    //
 }

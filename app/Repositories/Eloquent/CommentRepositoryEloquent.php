@@ -4,16 +4,16 @@ namespace App\Repositories\Eloquent;
 
 use App\Repositories\Eloquent\CustomBaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Contracts\Repositories\UserRepository;
-use App\Models\User;
-use App\Validators\UserValidator;
+use App\Contracts\Repositories\CommentRepository;
+use App\Models\Comment;
+use App\Validators\CommentValidator;
 
 /**
- * Class UserRepositoryEloquent
+ * Class CommentRepositoryEloquent
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class UserRepositoryEloquent extends CustomBaseRepository implements UserRepository
+class CommentRepositoryEloquent extends CustomBaseRepository implements CommentRepository
 {
     /**
      * Specify Model class name
@@ -22,7 +22,7 @@ class UserRepositoryEloquent extends CustomBaseRepository implements UserReposit
      */
     public function model()
     {
-        return User::class;
+        return Comment::class;
     }
 
     
