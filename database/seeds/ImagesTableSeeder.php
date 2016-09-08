@@ -19,7 +19,7 @@ class ImagesTableSeeder extends Seeder
                     'name'                   => $faker-> name.'.jpg',
                     'description'            => $faker->realText($faker->numberBetween(10,100)),
                     'imageable_id'           => $i,
-                    'imageable_type'         => 'App\Cinema',
+                    'imageable_type'         => 'App\Models\Cinema',
                     'created_at'             => Carbon\Carbon::now()
                 ]); 
             }
@@ -33,7 +33,7 @@ class ImagesTableSeeder extends Seeder
                     'name'                   => $faker-> name.'.jpg',
                     'description'            => $faker->realText($faker->numberBetween(10,100)),
                     'imageable_id'           => $i,
-                    'imageable_type'         => 'App\News',
+                    'imageable_type'         => 'App\Models\News',
                     'created_at'             => Carbon\Carbon::now()
                 ]); 
             }
@@ -46,7 +46,7 @@ class ImagesTableSeeder extends Seeder
                     'name'                   => $faker-> name.'.jpg',
                     'description'            => $faker->realText($faker->numberBetween(10,100)),
                     'imageable_id'           => $i,
-                    'imageable_type'         => 'App\Film',
+                    'imageable_type'         => 'App\Models\Film',
                     'created_at'             => Carbon\Carbon::now()
                 ]); 
             }
@@ -59,7 +59,7 @@ class ImagesTableSeeder extends Seeder
                     'name'                   => $faker-> name.'.jpg',
                     'description'            => $faker->realText($faker->numberBetween(10,100)),
                     'imageable_id'           => $i,
-                    'imageable_type'         => 'App\Advertisement',
+                    'imageable_type'         => 'App\Models\Advertisement',
                     'created_at'             => Carbon\Carbon::now()
                 ]); 
             }

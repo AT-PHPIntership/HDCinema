@@ -31,7 +31,7 @@ class Admin extends Authenticatable implements Transformable
      */
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany('App\Models\User');
     }
 
     /**
@@ -41,6 +41,6 @@ class Admin extends Authenticatable implements Transformable
      */
     public function films()
     {
-        return $this->hasMany('App\Film');
+        return $this->hasMany('App\Models\Film');
     }
 }

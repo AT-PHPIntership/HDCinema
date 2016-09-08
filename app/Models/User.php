@@ -39,7 +39,7 @@ class User extends Authenticatable implements Transformable
      */
     public function bookings()
     {
-        return $this->hasMany('App\Booking');
+        return $this->hasMany('App\Models\Booking');
     }
 
     /**
@@ -49,7 +49,7 @@ class User extends Authenticatable implements Transformable
      */
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     /**
@@ -59,6 +59,6 @@ class User extends Authenticatable implements Transformable
      */
     public function admin()
     {
-        return $this->belongsTo('App\Admin', 'admins_id');
+        return $this->belongsTo('App\Models\Admin', 'admins_id');
     }
 }

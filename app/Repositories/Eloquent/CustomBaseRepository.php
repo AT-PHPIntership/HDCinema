@@ -33,14 +33,10 @@ abstract class CustomBaseRepository extends BaseRepository implements CustomRepo
      */
     public function getListId(Collection $data)
     {
-        $accept=config('define.accepted');
-        $listId=[];
-        if (count($data)) {
-            foreach ($data as $item) {
-                $listId[]=$item->id;
-            }
-            return $listId;
+        $listId = [];
+        foreach ($data as $item) {
+            $listId[]=$item->id;
         }
-        return $accept;
+        return $listId;
     }
 }
