@@ -145,5 +145,8 @@ return [
         'create_success' => 'Created Film Successful',
         'create_error' => 'Create Fail ! Check again.',
         'title_create_film' => 'Create Film',
+        'delete_success' => 'Delete Successful !',
+        'delete_fail' => 'Delete Failed ! Try again.',
+        'film_in_use' => 'Film in use ! Please check Booking, Schedule table and try again.'
     ]
 ];

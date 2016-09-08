@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class Booking extends Model implements Transformable
+class Comment extends Model implements Transformable
 {
     use TransformableTrait;
 
@@ -15,13 +15,12 @@ class Booking extends Model implements Transformable
      *
      * @var array
      */
-    protected $table = 'bookings';
+    protected $table = 'comments';
 
-    protected $fillable = ['users_id', 'films_id', 'identitycard', 'cinema',
-     'date', 'time', 'quantity', 'seat'];
+    protected $fillable = ['content', 'parent_id', 'users_id', 'films_id'];
     
     /**
-     * Get the User that owns the booking.
+     * Get the User that owns the comment.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -31,7 +30,7 @@ class Booking extends Model implements Transformable
     }
 
     /**
-     * Get  film of booking.
+     * Get film that owns the comment.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
