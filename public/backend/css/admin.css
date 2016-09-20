@@ -39,3 +39,15 @@
 #create_film{
 	margin-bottom: 20px;
 }
+/*#list_schedules>tr>th:nth-child(1),th:nth-child(4),th:nth-child(5),th:nth-child(6),td:nth-child(1),td:nth-child(4),td:nth-child(5),td:nth-child(6){
+	width: 30px;
+}*/
+
+#list_schedules .col-room{
+	width: 10%;
+	max-width: 50px !important;
+}
+#send{
+	margin-left: 15px;
+	margin-top: 25px;
+}

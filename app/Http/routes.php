@@ -23,5 +23,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Backend'], function () {
         Route::get('/', ['as' => 'admin.home', 'uses' => 'HomeController@index']);
         Route::resource('user', 'UserController');
         Route::resource('film', 'FilmController');
+        Route::resource('schedule', 'ScheduleController', ['except' => ['show']]);
+        Route::get('/schedule/list', ['as' => 'admin.schedule.show','uses' => 'ScheduleController@show']);
     });
 });

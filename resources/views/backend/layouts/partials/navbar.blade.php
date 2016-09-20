@@ -116,7 +116,7 @@
             <span>{{ trans('lang_admin.homepage.user_manager') }}</span>
           </a>
         </li>
-        <li class="treeview {{ Request::is('admin/film') ? "active" : "" }}">
+        <li class="treeview {{ Request::is('admin/film') || Request::is('admin/schedule') ? "active" : "" }}">
           <a href="#">
             <i class="fa fa-film"></i> <span>{{ trans('lang_admin.homepage.manage_film') }}</span>
             <span class="pull-right-container">
@@ -126,6 +126,7 @@
           <ul class="treeview-menu">
             <li class="{{ Request::is('admin/film') ? "active" : "" }}"><a href="{{route('admin.film.index')}}"><i class="fa fa-film"></i> {{ trans('lang_admin.homepage.film') }}</a></li>
             <li class="{{ Request::is('admin/category') ? "active" : "" }}"><a href="#"><i class="fa fa-list-alt"></i> {{ trans('lang_admin.homepage.category') }}</a></li>
+            <li class="{{ Request::is('admin/schedule') ? "active" : "" }}"><a href="{{route('admin.schedule.index')}}"><i class="fa fa-list-alt"></i> {{ trans('lang_admin.homepage.manage_schedule') }}</a></li>
           </ul>
         </li>
         <li class="treeview {{ Request::is('admin/booking') ? "active" : "" }}">

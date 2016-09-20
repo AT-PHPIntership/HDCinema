@@ -59,13 +59,13 @@ class Schedule extends Model implements Transformable
         return $this->belongsTo('App\Models\Film', 'films_id');
     }
 
-    /**
-     * Get time that owns the schedule .
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function times()
-    {
-        return $this->belongsTo('App\Models\Time', 'times_id');
-    }
+    // *
+    //  * Get time that owns the schedule .
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     
+    // public function times()
+    // {
+    //     return $this->belongsTo('App\Models\Time', 'times_id');
+    // }
 }

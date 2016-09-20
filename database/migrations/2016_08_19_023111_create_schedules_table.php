@@ -20,8 +20,7 @@ class CreateSchedulesTable extends Migration
             $table->foreign('cinemas_id')->references('id')->on('cinemas');
             $table->integer('days_id')->unsigned();
             $table->foreign('days_id')->references('id')->on('days');
-            $table->integer('times_id')->unsigned();
-            $table->foreign('times_id')->references('id')->on('times');
+            $table->string('schedule');
             $table->integer('rooms_id')->unsigned();
             $table->foreign('rooms_id')->references('id')->on('rooms');
             $table->timestamps();
