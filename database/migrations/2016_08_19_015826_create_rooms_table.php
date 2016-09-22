@@ -18,6 +18,8 @@ class CreateRoomsTable extends Migration
             $table->string('status',100);
             $table->integer('cinemas_id')->unsigned();
             $table->foreign('cinemas_id')->references('id')->on('cinemas');
+            $table->integer('days_id')->unsigned();
+            $table->foreign('days_id')->references('id')->on('days');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@ $(document).ready(function(){
   //datatables
   $('#list_users').DataTable();
   $('#list_films').DataTable();
+  $('#list_schedules').DataTable();
   //countdown shutdown alert
   $("div.alert").delay(timeout).slideUp();
 
@@ -44,4 +45,44 @@ $("#image").on('change', function(){
     readURL(this);
 
 });
+
+//disable select room if day,cinema change and not yet click button checkroom
+$(document).on('change', 'select[name="cinema"], select[name="day"], select[name="film"], input[name="timeid[]"]', function (e) {
+  if (!$('select#room').attr('disabled')) {
+    $('select#room').html(new Option('No data available'));
+  }
+});
+
+// get data of room and pass into select
+$('#checkroom').on('click',function(e){
+  e.preventDefault();
+    $.ajaxSetup({
+
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+              }
+          });
+    $.ajax({
+      type: 'GET',
+      url: 'http://hdcinema.app/admin/schedule/room',
+      data: { day: $('form #day').val(),
+              cinema: $('form #cinema').val()
+      },
+      dataType: 'json',
+      success: function (data){
+        if (!data.length) {
+          return;
+        }
+        $('select#room').html('');
+        data.forEach(function (value) {
+          $('select#room').append(new Option(value.name, value.id));
+        });
+        $('select#room').attr('disabled', false);
+      },
+      error: function (data) {
+          alert('Error:',data);
+      }
+    });
+});
+
 

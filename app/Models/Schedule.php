@@ -17,7 +17,7 @@ class Schedule extends Model implements Transformable
      */
     protected $table= 'schedules';
     
-    protected $fillable= ['films_id', 'cinemas_id', 'days_id', 'times_id', 'rooms_id'];
+    protected $fillable= ['films_id', 'cinemas_id', 'days_id', 'schedule', 'rooms_id'];
 
     /**
      * Get cinema that owns the schedule .
@@ -57,15 +57,5 @@ class Schedule extends Model implements Transformable
     public function films()
     {
         return $this->belongsTo('App\Models\Film', 'films_id');
-    }
-
-    /**
-     * Get time that owns the schedule .
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function times()
-    {
-        return $this->belongsTo('App\Models\Time', 'times_id');
     }
 }

@@ -39,3 +39,48 @@
 #create_film{
 	margin-bottom: 20px;
 }
+
+#list_schedules .col-room{
+	width: 10%;
+	max-width: 50px !important;
+}
+#send{
+	margin-left: 15px;
+	margin-top: 25px;
+}
+.checkbox-label{
+	vertical-align: middle;
+	margin: -8px 0px 0px;
+	
+
+}
+#checkbox-schedule > li {
+	list-style-type: none;
+	float: left;
+	margin-right: 20px;
+}
+.schedule{
+	border: 1px solid #eee;
+	padding-top: 10px;
+	padding-bottom: 10px; 
+}
+#form_create_schedule{
+	padding: 20px;
+	background-color: rgb(60, 141, 188);
+	color: white;
+}
+#form_create_schedule select {
+	color: rgba(117, 111, 111, 0.9);
+}
+.btn-schedule{
+	background-color: white;
+	color: rgba(0, 0, 0, 0.61);
+}
+#checkroom{
+	color: rgba(0, 0, 0, 0.61);
+	margin-bottom: 10px;
+}
+#info{
+	margin-bottom: 10px;
+	font-size: 18px;
+}
