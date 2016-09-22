@@ -46,6 +46,7 @@ return [
         'manage_booking' => 'Manage Booking',
         'manage_ads' => 'Manage Advertisements',
         'manage_comment' => 'Manage Comments',
+        'manage_schedule' => 'Manage Schedule',
         'type_manager' => 'Type Manager',
         'list_types' => 'List Types',
         'copyright' => 'Copyright &copy; 2016-2020',
@@ -148,5 +149,22 @@ return [
         'delete_success' => 'Delete Successful !',
         'delete_fail' => 'Delete Failed ! Try again.',
         'film_in_use' => 'Film in use ! Please check Booking, Schedule table and try again.'
+    ],
+    'schedule' => [
+        'linked_schedule' => 'http://hdcinema.app/admin/schedule/',
+        'confirm' => 'Do you want delete this Schedule ?',
+        'title_delete' => 'Delete Schedule',
+        'title_manage_schedule' => 'Manage Schedule',
+        'schedule' => 'Schedules',
+        'create_schedule' => 'Create Schedule',
+        'check_room' => 'Check Room',
+        'day_default' => '1',
+        'cinema_default' => '1',
+        'day' => 'Day: ',
+        'cinema' => 'Cinema: ',
+        'film' => 'Film',
+        'room' => 'Room',
+        'room_empty' => 'Phòng trống'
+
     ]
 ];
